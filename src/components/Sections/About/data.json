@@ -1,0 +1,53 @@
+{
+  "id": "about",
+  "title": "About",
+  "props": {
+    "className": "mb-[80px]"
+  },
+  "children": [
+    {
+      "name": "intro",
+      "value": "A highly adaptable individual who wants to bring real value to society. A young mind has a passion in technology. Daring to find the answers and always looking forward to improve myself, not afraid of working under pressure.",
+      "layoutDefine": {
+        "className": "text-justify text-sm mb-8 dark:text-white",
+        "elementType": "p"
+      }
+    },
+    {
+      "name": "header",
+      "value": "Education",
+      "layoutDefine": {
+        "className": "font-bold text-xl mb-4 dark:text-white",
+        "elementType": "h2"
+      },
+      "children": {
+        "name": "content",
+        "value": [
+          {
+            "type": "campus",
+            "title": "Saigon University",
+            "subtitle": "Electrical and Electronic Engineer",
+            "startDate": "2016",
+            "endDate": "2020"
+          },
+          {
+            "type": "certificate",
+            "title": "Toeic",
+            "subtitle": "Overall 790",
+            "endDate": "2022"
+          },
+          {
+            "type": "certificate",
+            "title": "AZ-204",
+            "subtitle": "Azure Developer Associate",
+            "endDate": "2024"
+          }
+        ],
+        "layoutDefine": {
+          "className": "flex justify-between gap-10 mb-4",
+          "elementType": "li"
+        }
+      }
+    }
+  ]
+}
