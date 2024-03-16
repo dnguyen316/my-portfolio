@@ -3,13 +3,18 @@ import Home from "./Home/Home";
 import Contact from "./Contact/Contact";
 import { HomepagePath, SuccessContactPath } from "../constants/routes";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: HomepagePath,
+      element: <Home />,
+    },
+    {
+      path: SuccessContactPath,
+      element: <Contact />,
+    },
+  ],
   {
-    path: HomepagePath,
-    element: <Home />,
-  },
-  {
-    path: SuccessContactPath,
-    element: <Contact />,
-  },
-]);
+    basename: "/my-portfolio",
+  }
+);
