@@ -7,6 +7,7 @@ import react from "@vitejs/plugin-react-swc";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: "/my-portfolio/",
   test: {
     environment: "jsdom",
     setupFiles: ["./src/tests/setup.ts"],
