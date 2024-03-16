@@ -34,7 +34,7 @@ const menuItems: MenuItem[] = [
 const Sidebar = () => {
   const isMediumDevice = useMediaQuery("only screen and (min-width : 769px)");
 
-  const activeSection = useStore((state) => state.activeSection);
+  const activeSection = useStore((state: any) => state.activeSection);
 
   const dividerMenuItemClassName =
     "last:after:content-none after:absolute after:h-10 after:border-l-[2px] after:border-l-gray-700 after:inset-x-[50%] after:top-6 dark:after:border-l-white";

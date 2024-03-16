@@ -13,8 +13,10 @@ interface MobileSidebarProps {
 
 const MobileSidebar = ({ menuItems }: MobileSidebarProps) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const activeSection = useStore((state) => state.activeSection);
-  const updateActiveSection = useStore((state) => state.updateActiveSection);
+  const activeSection = useStore((state: any) => state.activeSection);
+  const updateActiveSection = useStore(
+    (state: any) => state.updateActiveSection
+  );
 
   const handleUpdateActiveSection = (title: string) => {
     updateActiveSection(title.toLowerCase());

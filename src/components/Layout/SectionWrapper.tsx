@@ -20,7 +20,9 @@ const SectionWrapper = ({
 
   const isScrollInView = useInView(ref);
 
-  const updateActiveSection = useStore((state) => state.updateActiveSection);
+  const updateActiveSection = useStore(
+    (state: any) => state.updateActiveSection
+  );
 
   useEffect(() => {
     if (isScrollInView) {
