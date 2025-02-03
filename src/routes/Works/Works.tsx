@@ -1,14 +1,14 @@
-import ContactSection from "../../components/Sections/Contact/ContactSection";
+import WorkSection from "../../components/Sections/Work/WorkSection";
 import { useMediaQuery } from "@uidotdev/usehooks";
 
-const ContactPage = () => {
+const WorksPage = () => {
   const isMediumDevice = useMediaQuery("only screen and (min-width : 769px)");
 
   return (
     <div className={`${isMediumDevice ? "pl-[160px]" : ""}`}>
-      <ContactSection />
+      <WorkSection />
     </div>
   );
 };
 
-export default ContactPage;
+export default WorksPage;

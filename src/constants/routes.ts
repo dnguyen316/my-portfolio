@@ -1,4 +1,7 @@
-const SuccessContactPath = "/contact";
+const SuccessPagePath = "/success";
 const HomepagePath = "/";
+const AboutPath = "/about";
+const WorksPath = "/works";
+const ContactPath = "/contact";
 
-export { HomepagePath, SuccessContactPath };
+export { HomepagePath, SuccessPagePath, AboutPath, WorksPath, ContactPath };

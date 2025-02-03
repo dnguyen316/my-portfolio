@@ -33,7 +33,7 @@ const SectionWrapper = ({
   return (
     <section
       data-testid="section-wrapper"
-      className={`w-full pr-7 pl-[58px] min-h-[450px] mb-4 md:max-w-[900px] md:mx-auto ${className}`}
+      className={`w-full pr-7 pl-[58px] min-h-[100vh] md:max-w-[900px] md:mx-auto ${className}`}
       id={id}
       ref={ref}
     >

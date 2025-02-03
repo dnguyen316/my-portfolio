@@ -3,7 +3,11 @@ import SectionWrapper from "../../Layout/SectionWrapper";
 
 const ContactSection = () => {
   return (
-    <SectionWrapper title="Contact" id="contact">
+    <SectionWrapper
+      title="Contact"
+      id="contact"
+      className=" flex flex-col items-center justify-center h-screen"
+    >
       <ContactForm />
     </SectionWrapper>
   );

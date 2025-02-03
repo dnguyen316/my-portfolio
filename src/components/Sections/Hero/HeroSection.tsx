@@ -1,21 +1,19 @@
 import { IconButton } from "@material-tailwind/react";
 import useTheme from "../../../hooks/useTheme";
 import Icon from "../../Icons/Icons";
-import dynamicIconImports from "lucide-react/dynamicIconImports";
 import { TypeAnimation } from "react-type-animation";
 import { useState } from "react";
 import SectionWrapper from "../../Layout/SectionWrapper";
+import { IconType } from "../../Icons/SVGIcons";
 
 const externalLinks = [
   {
-    id: "acbfbdjuir-fwafcacvwa-@#Rgegv",
     title: "github",
     url: "https://github.com/dnguyen316",
     target: "_blank",
     icon: "github",
   },
   {
-    id: "facvasvea-veavasvv-bwesvbw-bnrbnerb",
     title: "linkedin",
     url: "https://www.linkedin.com/in/th%C3%A1i-d%C6%B0%C6%A1ng-nguy%E1%BB%85n-l%C3%AA-852028203/",
     target: "_blank",
@@ -68,7 +66,7 @@ const HeroSection = () => {
         className="flex items-center justify-center gap-4"
       >
         {externalLinks.map((link) => (
-          <li key={link.id}>
+          <li key={link.title}>
             <a target={link.target} href={link.url}>
               <IconButton
                 variant="outlined"
@@ -76,10 +74,7 @@ const HeroSection = () => {
                 className="rounded-full"
                 color={theme === "dark" ? "white" : "black"}
               >
-                <Icon
-                  type="lucide"
-                  name={link.icon as keyof typeof dynamicIconImports}
-                />
+                <Icon name={link.icon as IconType} />
               </IconButton>
             </a>
           </li>

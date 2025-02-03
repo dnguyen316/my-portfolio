@@ -31,7 +31,11 @@ pressure.`;
 
 const AboutSection = () => {
   return (
-    <SectionWrapper title="About" id="about" className="mb-[80px]">
+    <SectionWrapper
+      title="About"
+      id="about"
+      className="flex flex-col items-center justify-center"
+    >
       <p className="text-justify text-sm mb-8 md:text-center dark:text-white">
         {aboutIntro}
       </p>

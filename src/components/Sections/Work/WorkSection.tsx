@@ -39,7 +39,11 @@ const experiencesList = [
 
 const WorkSection = () => {
   return (
-    <SectionWrapper title="Works" id="works" className="mb-[140px]">
+    <SectionWrapper
+      title="Works"
+      id="works"
+      className="flex flex-col items-center justify-center"
+    >
       <h2 className="font-bold text-xl mb-3 dark:text-white">Experience</h2>
       <ul>
         {experiencesList.map((data) => (

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, startTransition, useEffect, useState } from "react";
 import ToggleThemeBtn from "../../components/ToggleTheme/ToggleThemeBtn";
 
 export const ThemeContext = createContext("light");
@@ -14,7 +14,9 @@ export default function ThemeProvider({
 
   useEffect(() => {
     if (themeStorage) {
-      setTheme(themeStorage);
+      startTransition(() => {
+        setTheme(themeStorage);
+      });
     }
   }, []);
 
@@ -25,7 +27,11 @@ export default function ThemeProvider({
   return (
     <ThemeContext.Provider value={theme}>
       <ToggleThemeBtn
-        onChangeTheme={() => setTheme(theme === "light" ? "dark" : "light")}
+        onChangeTheme={() => {
+          startTransition(() => {
+            setTheme(theme === "light" ? "dark" : "light");
+          });
+        }}
       />
       {children}
     </ThemeContext.Provider>

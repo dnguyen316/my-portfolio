@@ -1,32 +1,24 @@
 import { lazy, memo, Suspense } from "react";
-import { LucideProps } from "lucide-react";
-import dynamicIconImports from "lucide-react/dynamicIconImports";
-import dynamicSVGIconImports from "./SVGIcons";
+import dynamicSVGIconImports, { IconType } from "./SVGIcons";
 import { Tooltip, Typography } from "@material-tailwind/react";
 
 const fallback = <div style={{ background: "#ddd", width: 24, height: 24 }} />;
 
-export interface IconProps extends Omit<LucideProps, "ref"> {
-  name: keyof typeof dynamicIconImports | keyof typeof dynamicSVGIconImports;
+export interface IconProps {
+  name: IconType;
   type?: "lucide" | "assets";
   isShowTooltip?: boolean;
 }
 
 const Icon = ({
   name,
-  type = "lucide",
+  type = "assets",
   isShowTooltip = undefined,
   ...props
 }: IconProps) => {
-  const LucideIcon = lazy(
-    dynamicIconImports[name as keyof typeof dynamicIconImports]
-  );
-
   const restProps = props;
 
-  const AssetIcon = lazy(
-    dynamicSVGIconImports[name as keyof typeof dynamicSVGIconImports]
-  );
+  const AssetIcon = lazy(dynamicSVGIconImports[name as IconType]);
 
   const renderIcon = (type: string, props: typeof restProps) => {
     switch (type) {
@@ -37,7 +29,7 @@ const Icon = ({
           </span>
         );
       default:
-        return <LucideIcon {...props} />;
+        return <></>;
     }
   };
 

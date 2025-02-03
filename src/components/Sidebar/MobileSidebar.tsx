@@ -2,10 +2,10 @@ import { IconButton } from "@material-tailwind/react";
 import { useState } from "react";
 import { Menu, MenuItem, Sidebar as SidebarWrapper } from "react-pro-sidebar";
 import Icon from "../Icons/Icons";
-import dynamicIconImports from "lucide-react/dynamicIconImports";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import useStore from "../../store/globalState";
 import { MenuItem as MenuItemType } from "./Sidebar";
+import { useNavigate } from "react-router-dom";
 
 interface MobileSidebarProps {
   menuItems: MenuItemType[];
@@ -18,8 +18,11 @@ const MobileSidebar = ({ menuItems }: MobileSidebarProps) => {
     (state: any) => state.updateActiveSection
   );
 
-  const handleUpdateActiveSection = (title: string) => {
+  const navigate = useNavigate();
+
+  const handleUpdateActiveSection = (title: string, url: string) => {
     updateActiveSection(title.toLowerCase());
+    navigate(url);
   };
 
   return (
@@ -32,16 +35,10 @@ const MobileSidebar = ({ menuItems }: MobileSidebarProps) => {
       <Menu data-testid="menu-list">
         {menuItems.map((item) => (
           <MenuItem
-            icon={
-              <Icon
-                isShowTooltip={false}
-                name={item.icon as keyof typeof dynamicIconImports}
-              />
-            }
+            icon={<Icon isShowTooltip={false} name={item.icon} />}
             key={item.title}
             data-testid="menu-item"
-            href={item.url}
-            onClick={() => handleUpdateActiveSection(item.title)}
+            onClick={() => handleUpdateActiveSection(item.title, item.url)}
             className="text-sm"
             rootStyles={{
               [`.ps-menu-button`]: {
