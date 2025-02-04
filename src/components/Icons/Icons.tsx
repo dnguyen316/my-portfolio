@@ -4,7 +4,7 @@ import { Tooltip, Typography } from "@material-tailwind/react";
 
 const fallback = <div style={{ background: "#ddd", width: 24, height: 24 }} />;
 
-export interface IconProps {
+export interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: IconType;
   type?: "lucide" | "assets";
   isShowTooltip?: boolean;
@@ -18,14 +18,19 @@ const Icon = ({
 }: IconProps) => {
   const restProps = props;
 
-  const AssetIcon = lazy(dynamicSVGIconImports[name as IconType]);
+  const AssetIcon = lazy(
+    () =>
+      dynamicSVGIconImports[name as IconType]() as Promise<{
+        default: React.FC<React.SVGProps<SVGSVGElement>>;
+      }>
+  );
 
   const renderIcon = (type: string, props: typeof restProps) => {
     switch (type) {
       case "assets":
         return (
           <span className="cursor-pointer inline-block relative">
-            <AssetIcon {...props} />
+            <AssetIcon ref={null as any} {...props} />
           </span>
         );
       default:

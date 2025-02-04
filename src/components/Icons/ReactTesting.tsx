@@ -1,10 +1,16 @@
-const ReactTestingIcon = (props: React.SVGProps<SVGSVGElement>) => {
+import React from "react";
+
+const ReactTestingIcon = React.forwardRef<
+  SVGSVGElement,
+  React.SVGProps<SVGSVGElement>
+>((props, ref) => {
   return (
     <svg
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width="1280"
       height="1280"
+      ref={ref}
       {...props}
     >
       <path
@@ -959,6 +965,6 @@ const ReactTestingIcon = (props: React.SVGProps<SVGSVGElement>) => {
       />
     </svg>
   );
-};
+});
 
 export default ReactTestingIcon;

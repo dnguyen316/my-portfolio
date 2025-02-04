@@ -1,4 +1,9 @@
-const AzureIcon = (props: React.SVGProps<SVGSVGElement>) => {
+import React from "react";
+
+const AzureIcon = React.forwardRef<
+  SVGSVGElement,
+  React.SVGProps<SVGSVGElement>
+>((props, ref) => {
   return (
     <svg
       width="800px"
@@ -6,6 +11,7 @@ const AzureIcon = (props: React.SVGProps<SVGSVGElement>) => {
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
+      ref={ref}
       {...props}
     >
       <g>
@@ -13,6 +19,6 @@ const AzureIcon = (props: React.SVGProps<SVGSVGElement>) => {
       </g>
     </svg>
   );
-};
+});
 
 export default AzureIcon;
