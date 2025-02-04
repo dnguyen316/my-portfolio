@@ -1,7 +1,7 @@
 import { useMediaQuery } from "@uidotdev/usehooks";
 import MobileSidebar from "./MobileSidebar";
 import useStore from "../../store/globalState";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IconType } from "../Icons/SVGIcons";
 
 export interface MenuItem {
